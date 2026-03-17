@@ -1,0 +1,54 @@
+[
+    {
+        "key": "ClientId",
+        "type": "input",
+        "defaultValue": "",
+        "templateOptions": {
+            "label": "ClientId",
+            "description": "The ClientId to connect to the API",
+            "required": true
+        }
+    },
+    {
+        "key": "ClientSecret",
+        "type": "input",
+        "defaultValue": "",
+        "templateOptions": {
+            "type": "password",
+            "label": "ClientSecret",
+            "description": "The client secret to connect to the API",
+            "required": true
+        }
+    },
+        {
+        "key": "RefreshToken",
+        "type": "input",
+        "defaultValue": "",
+        "templateOptions": {
+            "type": "password",
+            "label": "RefreshToken",
+            "description": "The refresh token to attain the access token to connect to the API",
+            "required": true
+        }
+    },
+    {
+        "key": "TokenUrl",
+        "type": "input",
+        "defaultValue": "",
+        "templateOptions": {
+            "label": "tokenUrl",
+            "description": "The Url to the Token generation endpoint.",
+            "required": true
+        }
+    },
+    {
+        "key": "CompanyCode",
+        "type": "input",
+        "defaultValue": "",
+        "templateOptions": {
+            "label": "CompanyCode",
+            "description": "The CompanyCode to connect to the API.",
+            "required": true
+        }
+    }
+]

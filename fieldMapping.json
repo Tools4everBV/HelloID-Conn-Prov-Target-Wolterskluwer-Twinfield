@@ -1,0 +1,197 @@
+{
+  "Version": "v1",
+  "MappingFields": [
+    {
+      "Name": "invitationstatus",
+      "Description": "",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create"
+          ],
+          "MappingMode": "Fixed",
+          "Value": "\"Invited\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        },
+        {
+          "MapForActions": [
+            "Update"
+          ],
+          "MappingMode": "None",
+          "Value": "null",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    },
+    {
+      "Name": "role",
+      "Description": "",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create"
+          ],
+          "MappingMode": "Fixed",
+          "Value": "\"LVL1_INTERN\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        },
+        {
+          "MapForActions": [
+            "Update"
+          ],
+          "MappingMode": "None",
+          "Value": "null",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    },
+    {
+      "Name": "password",
+      "Description": "The password of new account. Only used in the create.",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create"
+          ],
+          "MappingMode": "Complex",
+          "Value": "\"\\r\\n// generatePasswordOption1.js [https://github.com/Tools4everBV/HelloID-Lib-Prov-HelperFunctions/blob/master/Javascript/Target/Password/Scripts/generatePasswordOption1.js]\\r\\n//\\r\\n// Helper function to shuffle an array\\r\\nfunction randomizeCharSequence(passwordObject) {\\r\\n    for (let j, x, i = passwordObject.length; i; j = Math.floor(Math.random() * i), x = passwordObject[--i], passwordObject[i] = passwordObject[j], passwordObject[j] = x);\\r\\n    return passwordObject;\\r\\n}\\r\\n\\r\\nfunction generatePassword() {\\r\\n    // Initialize these variables for the algorithm to meet your password complexity rules\\r\\n    const passwordLength = 12;\\r\\n    const minUpper = 1;\\r\\n    const maxUpper = 3;\\r\\n    const minNumeric = 2;\\r\\n    const maxNumeric = 3;\\r\\n    const minSpecial = 2;\\r\\n    const maxSpecial = 3;\\r\\n\\r\\n    // Character sets\\r\\n    const upperChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';\\r\\n    const lowerChars = 'abcdefghijklmnopqrstuvwxyz';\\r\\n    const numberChars = '0123456789';\\r\\n    const specialChars = '!#$@*?';\\r\\n\\r\\n    // Do not change any code below this line !!!\\r\\n\\r\\n    // Helper function to get a random character from a set\\r\\n    const getRandomValue = (values) => values.charAt(Math.floor(Math.random() * values.length));\\r\\n\\r\\n    // Generate individual character groups\\r\\n    const numberUpper = Math.floor(Math.random() * (maxUpper - minUpper + 1)) + minUpper;\\r\\n    const numberNumeric = Math.floor(Math.random() * (maxNumeric - minNumeric + 1)) + minNumeric;\\r\\n    const numberSpecial = Math.floor(Math.random() * (maxSpecial - minSpecial + 1)) + minSpecial;\\r\\n    const numberLower = passwordLength - (numberUpper + numberNumeric + numberSpecial);\\r\\n\\r\\n    const numericGroup = Array.from({ length: numberNumeric }, () => getRandomValue(numberChars));\\r\\n    const upperGroup = Array.from({ length: numberUpper }, () => getRandomValue(upperChars));\\r\\n    const specialGroup = Array.from({ length: numberSpecial }, () => getRandomValue(specialChars));\\r\\n    const lowerGroup = Array.from({ length: numberLower }, () => getRandomValue(lowerChars));\\r\\n\\r\\n    // Combine all groups and shuffle the order\\r\\n    const password = randomizeCharSequence([...numericGroup, ...upperGroup, ...specialGroup, ...lowerGroup]);\\r\\n\\r\\n    return password.join('');\\r\\n}\\r\\n\\r\\ngeneratePassword();\\r\\n\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    },
+    {
+      "Name": "culture",
+      "Description": "",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create"
+          ],
+          "MappingMode": "Fixed",
+          "Value": "\"nl-NL\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        },
+        {
+          "MapForActions": [
+            "Update"
+          ],
+          "MappingMode": "None",
+          "Value": "null",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    },
+    {
+      "Name": "type",
+      "Description": "",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create"
+          ],
+          "MappingMode": "Fixed",
+          "Value": "\"accountant\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        },
+        {
+          "MapForActions": [
+            "Update"
+          ],
+          "MappingMode": "None",
+          "Value": "\"\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    },
+    {
+      "Name": "shortname",
+      "Description": "",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create",
+            "Update"
+          ],
+          "MappingMode": "Complex",
+          "Value": "\"\\r\\n// generateDisplayNameOption1.js [https://github.com/Tools4everBV/HelloID-Lib-Prov-HelperFunctions/blob/master/Javascript/Target/DisplayName/Scripts/generateDisplayNameOption1.js]\\r\\n//\\r\\n// Mapping logic to generate the DisplayName according to the following convention.\\r\\n// B\\tJanine van den Boele\\r\\n// BP\\tJanine van den Boele – de Vries\\r\\n// P\\tJanine de Vries\\r\\n// PB   Janine de Vries – van den Boele\\r\\nfunction generateDisplayName() {\\r\\n    let nickName = Person.Name.NickName;\\r\\n    let middleName = Person.Name.FamilyNamePrefix;\\r\\n    let lastName = Person.Name.FamilyName;\\r\\n    let middleNamePartner = Person.Name.FamilyNamePartnerPrefix;\\r\\n    let lastNamePartner = Person.Name.FamilyNamePartner;\\r\\n    let convention = Person.Name.Convention;\\r\\n\\r\\n    let displayName = '';\\r\\n    switch (convention) {\\r\\n        case \\\"BP\\\":\\r\\n            displayName = displayName + nickName + ' ';\\r\\n            if (typeof middleName !== 'undefined' && middleName) { displayName = displayName + middleName + ' ' }\\r\\n            displayName = displayName + lastName;\\r\\n\\r\\n            displayName = displayName + ' - ';\\r\\n            if (typeof middleNamePartner !== 'undefined' && middleNamePartner) { displayName = displayName + middleNamePartner + ' ' }\\r\\n            displayName = displayName + lastNamePartner;\\r\\n            break;\\r\\n        case \\\"PB\\\":\\r\\n            displayName = displayName + nickName + ' ';\\r\\n            if (typeof middleNamePartner !== 'undefined' && middleNamePartner) { displayName = displayName + middleNamePartner + ' ' }\\r\\n            displayName = displayName + lastNamePartner;\\r\\n\\r\\n            displayName = displayName + ' - ';\\r\\n            if (typeof middleName !== 'undefined' && middleName) { displayName = displayName + middleName + ' ' }\\r\\n            displayName = displayName + lastName;\\r\\n            break;\\r\\n        case \\\"P\\\":\\r\\n            displayName = displayName + nickName + ' ';\\r\\n            if (typeof middleNamePartner !== 'undefined' && middleNamePartner) { displayName = displayName + middleNamePartner + ' ' }\\r\\n            displayName = displayName + lastNamePartner;\\r\\n            break;\\r\\n        case \\\"B\\\":\\r\\n        default:\\r\\n            displayName = displayName + nickName + ' ';\\r\\n            if (typeof middleName !== 'undefined' && middleName) { displayName = displayName + middleName + ' ' }\\r\\n            displayName = displayName + lastName;\\r\\n            break;\\r\\n    }\\r\\n    // Trim spaces at start and end\\r\\n    displayName = displayName.trim();\\r\\n\\r\\n    // Shorten string to maxAttributeLength \\r\\n    const maxAttributeLength = 20;\\r\\n    displayName = displayName.substring(0, maxAttributeLength);\\r\\n\\r\\n     // Trim spaces again to prevent ending in space after truncations\\r\\n    displayName = displayName.trim();\\r\\n\\r\\n    return displayName;\\r\\n}\\r\\n\\r\\ngenerateDisplayName();\\r\\n\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    },
+    {
+      "Name": "name",
+      "Description": "",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create",
+            "Update"
+          ],
+          "MappingMode": "Complex",
+          "Value": "\"\\r\\n// generateDisplayNameOption1.js [https://github.com/Tools4everBV/HelloID-Lib-Prov-HelperFunctions/blob/master/Javascript/Target/DisplayName/Scripts/generateDisplayNameOption1.js]\\r\\n//\\r\\n// Mapping logic to generate the DisplayName according to the following convention.\\r\\n// B\\tJanine van den Boele\\r\\n// BP\\tJanine van den Boele – de Vries\\r\\n// P\\tJanine de Vries\\r\\n// PB   Janine de Vries – van den Boele\\r\\nfunction generateDisplayName() {\\r\\n    let nickName = Person.Name.NickName;\\r\\n    let middleName = Person.Name.FamilyNamePrefix;\\r\\n    let lastName = Person.Name.FamilyName;\\r\\n    let middleNamePartner = Person.Name.FamilyNamePartnerPrefix;\\r\\n    let lastNamePartner = Person.Name.FamilyNamePartner;\\r\\n    let convention = Person.Name.Convention;\\r\\n\\r\\n    let displayName = '';\\r\\n    switch (convention) {\\r\\n        case \\\"BP\\\":\\r\\n            displayName = displayName + nickName + ' ';\\r\\n            if (typeof middleName !== 'undefined' && middleName) { displayName = displayName + middleName + ' ' }\\r\\n            displayName = displayName + lastName;\\r\\n\\r\\n            displayName = displayName + ' - ';\\r\\n            if (typeof middleNamePartner !== 'undefined' && middleNamePartner) { displayName = displayName + middleNamePartner + ' ' }\\r\\n            displayName = displayName + lastNamePartner;\\r\\n            break;\\r\\n        case \\\"PB\\\":\\r\\n            displayName = displayName + nickName + ' ';\\r\\n            if (typeof middleNamePartner !== 'undefined' && middleNamePartner) { displayName = displayName + middleNamePartner + ' ' }\\r\\n            displayName = displayName + lastNamePartner;\\r\\n\\r\\n            displayName = displayName + ' - ';\\r\\n            if (typeof middleName !== 'undefined' && middleName) { displayName = displayName + middleName + ' ' }\\r\\n            displayName = displayName + lastName;\\r\\n            break;\\r\\n        case \\\"P\\\":\\r\\n            displayName = displayName + nickName + ' ';\\r\\n            if (typeof middleNamePartner !== 'undefined' && middleNamePartner) { displayName = displayName + middleNamePartner + ' ' }\\r\\n            displayName = displayName + lastNamePartner;\\r\\n            break;\\r\\n        case \\\"B\\\":\\r\\n        default:\\r\\n            displayName = displayName + nickName + ' ';\\r\\n            if (typeof middleName !== 'undefined' && middleName) { displayName = displayName + middleName + ' ' }\\r\\n            displayName = displayName + lastName;\\r\\n            break;\\r\\n    }\\r\\n    // Trim spaces at start and end\\r\\n    displayName = displayName.trim();\\r\\n\\r\\n    // Shorten string to maxAttributeLength \\r\\n    const maxAttributeLength = 40;\\r\\n    displayName = displayName.substring(0, maxAttributeLength);\\r\\n\\r\\n    // Trim spaces again to prevent ending in space after truncations\\r\\n    displayName = displayName.trim();\\r\\n\\r\\n    return displayName;\\r\\n}\\r\\n\\r\\ngenerateDisplayName();\\r\\n\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    },
+    {
+      "Name": "email",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create",
+            "Update"
+          ],
+          "MappingMode": "Complex",
+          "Value": "\"function getEmail() {\\n    let mail = '';\\n\\n    if (typeof Person.Accounts.MicrosoftActiveDirectory.mail !== 'undefined' && Person.Accounts.MicrosoftActiveDirectory.mail) {\\n        mail = Person.Accounts.MicrosoftActiveDirectory.mail;\\n    }\\n  \\n    return mail;\\n}\\n\\ngetEmail()\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    },
+    {
+      "Name": "code",
+      "Description": "",
+      "Type": "Text",
+      "MappingActions": [
+        {
+          "MapForActions": [
+            "Create"
+          ],
+          "MappingMode": "Complex",
+          "Value": "\"function getCode() {\\r\\n    let code = '';\\r\\n\\r\\n    if (typeof Person.Accounts.MicrosoftActiveDirectory.sAMAccountName !== 'undefined' && Person.Accounts.MicrosoftActiveDirectory.sAMAccountName) {\\r\\n        code = Person.Accounts.MicrosoftActiveDirectory.sAMAccountName;\\r\\n    }\\r\\n    \\r\\n    return code;\\r\\n}\\r\\n\\r\\ngetCode()\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        },
+        {
+          "MapForActions": [
+            "Update"
+          ],
+          "MappingMode": "None",
+          "Value": "\"\"",
+          "UsedInNotifications": false,
+          "StoreInAccountData": false
+        }
+      ]
+    }
+  ],
+  "UniqueFieldNames": []
+}
