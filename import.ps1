@@ -329,6 +329,7 @@ try {
                         $splatReadUserParams['Proxy'] = $actionContext.Configuration.ProxyAddress
                     }
 
+                    $readResponse = $null
                     do {
                         try {
                             $readResponse = Invoke-RestMethod @splatReadUserParams 
@@ -345,7 +346,7 @@ try {
                             }
                         }
                     }
-                    while ($retryCount -gt 0 -and $retryCount -le 3) 
+                    while ($retryCount -gt 0 -and $retryCount -le 10) 
                   
                     $ReadUserInfo = [xml] $readResponse.Envelope.Body.ProcessXmlStringResponse.ProcessXmlStringResult
                     $Accountdetails = $ReadUserInfo.user
