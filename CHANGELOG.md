@@ -13,3 +13,17 @@ This is the first official release of _HelloID-Conn-Prov-Target-Wolterskluwer-Tw
 ### Deprecated
 
 ### Removed
+
+## [1.0.1] - 28-05-2026
+
+Minor fixes
+
+### Added
+
+### Changed
+- Fixed syntax error in enable script
+- Fixed issue with duplicate account references in import script
+
+### Deprecated
+
+### Removed

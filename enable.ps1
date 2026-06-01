@@ -322,7 +322,7 @@ try {
             break
         }
         'deleted' {
-            Write-Information "Wolterskluwer-Twinfield account: [$($actionContext.References.Account)] exists, but has the deleted status. 
+            Write-Information "Wolterskluwer-Twinfield account: [$($actionContext.References.Account)] exists, but has the deleted status."
             $outputContext.Success = $false
             $outputContext.AuditLogs.Add([PSCustomObject]@{
                     Message = "Wolterskluwer-Twinfield account: [$($actionContext.References.Account)] exists, but has the deleted status."
