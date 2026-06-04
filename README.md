@@ -12,7 +12,7 @@
 > The delete action in the delete script is a soft-delete. Currently reboarding of soft deleted accounts is not possible.  If HelloId would create an account with the same code as a deleted account, an error will be logged, and no user is created.
 
 <p align="center">
-  <img src="">
+  <img src="https://github.com/Tools4everBV/HelloID-Conn-Prov-Target-Wolterskluwer-Twinfield/blob/main/Logo.png?raw=true">
 </p>
 
 ## Table of contents
